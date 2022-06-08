@@ -10,6 +10,47 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <div id="container">
+      <header>
+        <h1>Invoice creator</h1>
+        <p>Thanks for choosing GoodCorp, LLC!</p>
+      </header>
+      <div class="lower-half">
+        <section id="btn-tasks" class="btn-tasks-group">
+          <button class="task-btn">Wash Car: $10</button>
+          <button class="task-btn">Mow Lawn: $20</button>
+          <button class="task-btn">Pull Weeds: $30</button>
+        </section>
+        <div class="task-total">
+          <p>TASK</p>
+          <p>TOTAL</p>
+        </div>
+        <ul>
+          <div class="service-amount">
+            <li>Wash Car</li>
+            <p>$10</p>
+          </div>
+          <div class="service-amount">
+            <li>Mow Lawn</li>
+            <p>$20</p>
+          </div>
+          <div class="service-amount">
+            <li>Pull Weeds</li>
+            <p>$30</p>
+          </div>
+        </ul>
+        <hr />
+        <div class="amt-section">
+          <p>NOTES</p>
+          <p>TOTAL AMOUNT</p>
+        </div>
+        <div class="pmt-section">
+          <p>We accept cash, credit, or PayPal</p>
+          <p>$60</p>
+        </div>
+        <button class="send-invoice-btn">Send Invoice</button>
+      </div>
+    </div>
     <script src="./script.js" async defer></script>
   </body>
 </html>
