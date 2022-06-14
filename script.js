@@ -9,48 +9,55 @@ let serviceAmtSection = document.getElementById("service-amt-section");
 const washCarBtn = document.getElementById("wash-car-btn");
 const mowLawnBtn = document.getElementById("mow-lawn-btn");
 const pullWeedsBtn = document.getElementById("pull-weeds-btn");
+let serviceTotal = document.getElementById("service-total");
 
 // EVENT LISTENERS
 
 washCarBtn.addEventListener("click", function () {
-  for (let i = 0; i < servicesRequested.length; i++) {
-    if (servicesRequested[i].service === "Wash Car") {
-      console.log("already there");
-    } else {
-      servicesRequested += [
-        {
-          service: "Wash Car",
-          amount: 10,
-        },
-      ];
-    }
-  }
+  servicesRequested.push("Wash Car");
+  costOfService.push(10);
+
+  costOfService.reduce(function (prev, curr) {
+    total = prev + curr;
+    serviceTotal.textContent = "$" + total;
+    console.log(total);
+    return total;
+  }, 0);
+
+  render();
 });
 
 mowLawnBtn.addEventListener("click", function () {
-  if (servicesRequested.includes("Mow Lawn")) {
-    console.log("already there");
-  } else {
-    servicesRequested.push("Mow Lawn");
-    costOfService.push(20);
+  servicesRequested.push("Mow Lawn");
+  costOfService.push(20);
 
-    render();
-  }
+  costOfService.reduce(function (prev, curr) {
+    total = prev + curr;
+    serviceTotal.textContent = "$" + total;
+    console.log(total);
+    return total;
+  }, 0);
+
+  render();
 });
 
 pullWeedsBtn.addEventListener("click", function () {
-  if (servicesRequested.includes("Pull Weeds")) {
-    console.log("already there");
-  } else {
-    servicesRequested.push("Pull Weeds");
-    costOfService.push(30);
+  servicesRequested.push("Pull Weeds");
+  costOfService.push(30);
 
-    render();
-  }
+  costOfService.reduce(function (prev, curr) {
+    total = prev + curr;
+    serviceTotal.textContent = "$" + total;
+    console.log(total);
+    return total;
+  }, 0);
+
+  render();
 });
 
 // FUNCTIONS
 function render() {
+  serviceAmtSection.innerHTML = "";
   for (let i = 0; i < servicesRequested.length; i++) {
     serviceAmtSection.innerHTML += `
     <div class="service-amount">
@@ -60,11 +67,15 @@ function render() {
     
     `;
     for (let i = 0; i < costOfService.length; i++) {
-      console.log(costOfService[i]);
+      // console.log(costOfService[i]);
     }
   }
-  console.log(servicesRequested);
-  console.log(costOfService);
+  // console.log(servicesRequested);
+  // console.log(costOfService);
 }
 
-function renderService(service) {}
+costOfService.reduce(function (prev, curr) {
+  total = prev + curr;
+  console.log(total);
+  return total;
+}, 0);
